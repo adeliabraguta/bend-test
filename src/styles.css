@@ -1,0 +1,21 @@
+:root {
+  font-family: "Gill Sans", sans-serif;
+
+  --color-background: #19263b;
+  --color-blue-light: #2b4e87;
+  --color-blue-dark: #203d74;
+  --color-primary: #fff;
+  --color-red: #f64d25;
+  --color-orange: #ff9800;
+  --color-yellow: #f4e700;
+
+  background-color: var(--color-background);
+  color: var(--color-primary);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}

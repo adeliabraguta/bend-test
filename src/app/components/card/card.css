@@ -1,0 +1,21 @@
+.card {
+  position: relative;
+  background-color: var(--color-blue-light);
+  padding: 20px;
+  width: 130px;
+  height: 80px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  h4{
+    font-size: 20px;
+  }
+}

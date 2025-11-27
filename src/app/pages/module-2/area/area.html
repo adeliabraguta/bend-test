@@ -1,0 +1,12 @@
+<div>
+  <h3>{{ area?.name }}</h3>
+  <div class="container">
+    @for (things of sortThings(); track $index) {
+      <div class="sections">
+        @for (thing of things; track thing.id) {
+            <app-card class="card" [thing]="thing"></app-card>
+        }
+      </div>
+    }
+  </div>
+</div>

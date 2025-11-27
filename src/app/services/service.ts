@@ -9,6 +9,7 @@ import { IArea } from '../models/area.model';
 })
 export class Service {
   protected http = inject(HttpClient);
+
   getThings(): Observable<IThing[]> {
     return this.http.get<IThing[]>('/assets/data/things.json');
   }
