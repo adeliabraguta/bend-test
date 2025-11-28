@@ -4,7 +4,7 @@ export interface IThing {
   joinedWith: number | null;
   sku: string;
   defaultSku: string;
-  status: 'open' | 'closed' | 'both';
+  status: 'open' | 'closed';
   countActive: number;
 }
 
