@@ -3,8 +3,8 @@
   <div class="container">
     @for (things of sortedThings; track $index) {
       <div class="sections">
-        @for (thing of things; track thing.id) {
-            <app-card class="card" [thing]="thing"></app-card>
+        @for (thing of things.list; track thing.id; let first = $first) {
+          <app-card class="card" [thing]="thing" [isFirst]=first [status]=things.status></app-card>
         }
       </div>
     }

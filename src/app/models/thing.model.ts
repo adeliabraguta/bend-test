@@ -4,6 +4,11 @@ export interface IThing {
   joinedWith: number | null;
   sku: string;
   defaultSku: string;
-  status: string;
+  status: 'open' | 'closed' | 'both';
   countActive: number;
+}
+
+export interface ISortedThing {
+  status: 'open' | 'closed' | 'both';
+  list: IThing[];
 }

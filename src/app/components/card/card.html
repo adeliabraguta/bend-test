@@ -1,4 +1,7 @@
 <div class="card">
+  @if (isFirst()) {
+    <div class="first-card-label" [ngClass]="statusClass()"></div>
+  }
   <span>{{ thing()?.sku }}</span>
   <h4>{{ thing()?.defaultSku }}</h4>
 </div>

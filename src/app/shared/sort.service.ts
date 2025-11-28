@@ -1,24 +1,32 @@
 import { Injectable } from '@angular/core';
-import { IThing } from '../models/thing.model';
+import { ISortedThing, IThing } from '../models/thing.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SortService {
   sortThings(things: IThing[]) {
-    const groups: IThing[][] = [];
+    const groups: ISortedThing[] = [];
 
     things?.forEach((thing) => {
       if (thing.joinedWith === null) {
-        groups.push([thing]);
+        groups.push({
+          status: thing.status,
+          list: [thing],
+        } as ISortedThing);
       }
     });
 
     things?.forEach((thing) => {
       if (thing.joinedWith !== null) {
-        const parentGroup = groups.find((group) => group[0].id === thing.joinedWith);
+        const parentGroup = groups.find(
+          (group: ISortedThing) => group.list[0].id === thing.joinedWith,
+        );
         if (parentGroup) {
-          parentGroup.push(thing);
+          if (parentGroup.status !== thing.status) {
+            parentGroup.status = 'both';
+          }
+          parentGroup.list.push(thing);
         }
       }
     });

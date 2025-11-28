@@ -7,7 +7,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { IArea } from '../../../models/area.model';
-import { IThing } from '../../../models/thing.model';
+import { ISortedThing, IThing } from '../../../models/thing.model';
 import { Card } from '../../../components/card/card';
 import { SortService } from '../../../shared/sort.service';
 
@@ -22,7 +22,7 @@ import { SortService } from '../../../shared/sort.service';
 export class Area implements OnChanges {
   @Input() area: IArea | null = null;
   @Input() things: IThing[] = [];
-  sortedThings: IThing[][] = [];
+  sortedThings: ISortedThing[] = [];
   private sortService = inject(SortService);
 
   ngOnChanges(changes: SimpleChanges) {
