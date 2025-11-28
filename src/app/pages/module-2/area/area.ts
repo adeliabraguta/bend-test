@@ -1,37 +1,31 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { IArea } from '../../../models/area.model';
-import { IThing } from '../../../models/thing.model';
 import { Card } from '../../../components/card/card';
+import { SortService } from '../../../shared/sort.service';
+import { Service } from '../../../services/service';
+import { map, of } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
+import { ISortedThing } from '../../../models/thing.model';
 
 @Component({
   selector: 'app-area',
-  imports: [Card],
+  imports: [AsyncPipe, Card],
   templateUrl: './area.html',
   styleUrl: './area.css',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Area {
-  @Input() area: IArea | null = null;
-  @Input() things: IThing[] | null = null;
+  private dataService = inject(Service);
+  private sortService = inject(SortService);
 
-  sortThings() {
-    const groups: IThing[][] = [];
+  area = input<IArea | null>(null);
 
-    this.things?.forEach((thing) => {
-      if (thing.joinedWith === null) {
-        groups.push([thing]);
-      }
-    });
-
-    this.things?.forEach((thing) => {
-      if (thing.joinedWith !== null) {
-        const parentGroup = groups.find((group) => group[0].id === thing.joinedWith);
-        if (parentGroup) {
-          parentGroup.push(thing);
-        }
-      }
-    });
-    return groups;
-  }
+  things$ = computed(() => {
+    const areaId = this.area()?.areaId;
+    if (!areaId) return of([] as ISortedThing[]);
+    return this.dataService
+      .getThingsByAreaId(areaId)
+      .pipe(map((things) => this.sortService.sortThings(things)));
+  });
 }

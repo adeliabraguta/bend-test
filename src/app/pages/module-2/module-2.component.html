@@ -1,0 +1,5 @@
+<div>
+  @for (area of areas$ | async; track area.areaId) {
+    <app-area [area]="area"></app-area>
+  }
+</div>

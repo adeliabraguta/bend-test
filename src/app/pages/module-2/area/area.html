@@ -1,10 +1,10 @@
 <div>
-  <h3>{{ area?.name }}</h3>
+  <h3>{{ area()?.name }}</h3>
   <div class="container">
-    @for (things of sortThings(); track $index) {
+    @for (things of things$() | async; track $index) {
       <div class="sections">
-        @for (thing of things; track thing.id) {
-            <app-card class="card" [thing]="thing"></app-card>
+        @for (thing of things.list; track thing.id; let first = $first) {
+          <app-card class="card" [thing]="thing" [isFirst]="first" [status]="things.status"></app-card>
         }
       </div>
     }
