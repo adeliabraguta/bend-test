@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Service } from '../../services/service';
-import { Area } from './area_module-2/area';
+import { Area } from './area/area';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
