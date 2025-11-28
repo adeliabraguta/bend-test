@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { IThing } from '../../models/thing.model';
 import { NgClass } from '@angular/common';
 
@@ -8,6 +8,7 @@ import { NgClass } from '@angular/common';
   templateUrl: './card.html',
   styleUrl: './card.css',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Card {
   thing = input<IThing | null>(null);

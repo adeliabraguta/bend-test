@@ -7,18 +7,19 @@ import {
 } from '@angular/core';
 import { IArea } from '../../models/area.model';
 import { Service } from '../../services/service';
-import { Area } from './area/area';
+import { Area_module1 } from './area_module-1/area_module-1';
 import { IThing } from '../../models/thing.model';
 
 @Component({
   selector: 'app-module-1',
-  imports: [Area],
+  imports: [Area_module1],
   templateUrl: './module-1.component.html',
-  styleUrl: './module-1.component.css',
+  styleUrl: '../../styles/module.css',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Module1Component implements OnInit {
+  // Module 1: version Subsribe
   areas: IArea[] = [];
   things: IThing[] = [];
   private dataService = inject(Service);
