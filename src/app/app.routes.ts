@@ -5,13 +5,13 @@ export const routes: Routes = [
   {
     path: 'module1',
     loadComponent: () =>
-      import('./pages/module-1/module-1.component').then((m) => m.Module1Component),
+      import('./pages/module-one/module-one.component').then((m) => m.ModuleOneComponent),
     title: 'Module1',
   },
   {
     path: 'module2',
     loadComponent: () =>
-      import('./pages/module-2/module-2.component').then((m) => m.Module2Component),
+      import('./pages/module-2/module-two.component').then((m) => m.ModuleTwoComponent),
     title: 'Module2',
   },
 ];

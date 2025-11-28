@@ -8,14 +8,14 @@ import { AsyncPipe } from '@angular/common';
 import { ISortedThing } from '../../../models/thing.model';
 
 @Component({
-  selector: 'app-area_module-2',
+  selector: 'app-area',
   imports: [AsyncPipe, Card],
-  templateUrl: './area_module-2.html',
+  templateUrl: './area.html',
   styleUrl: '../../../styles/area.css',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Area_module2 {
+export class Area {
   // Module 2: signals and async pipe approach
   private dataService = inject(Service);
   private sortService = inject(SortService);

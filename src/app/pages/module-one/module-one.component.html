@@ -1,0 +1,5 @@
+<div>
+  @for (area of areas; track area.areaId) {
+    <app-area [area]="area" [things]="getThingsByZone(area.areaId)"></app-area>
+  }
+</div>

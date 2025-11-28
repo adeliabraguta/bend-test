@@ -1,17 +1,17 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Service } from '../../services/service';
-import { Area_module2 } from './area_module-2/area_module-2';
+import { Area } from './area_module-2/area';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-module-2',
-  imports: [AsyncPipe, Area_module2],
-  templateUrl: './module-2.component.html',
+  selector: 'app-module-two',
+  imports: [AsyncPipe, Area],
+  templateUrl: './module-two.component.html',
   styleUrl: '../../styles/module.css',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Module2Component {
+export class ModuleTwoComponent {
   // Module 2: Async pipe approach
   private dataService = inject(Service);
 
