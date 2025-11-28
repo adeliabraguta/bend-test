@@ -30,6 +30,6 @@ export class SortService {
         }
       }
     });
-    return groups;
+    return groups.sort((a: ISortedThing, b: ISortedThing) => b.list.length - a.list.length);
   }
 }
